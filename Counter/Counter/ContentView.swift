@@ -7,10 +7,36 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct ContentView {
+    @State private var counter = 0
+    
+    func increment() {
+        counter += 1
+    }
+    
+    func decrement() {
+        counter -= 1
+    }
+}
+
+extension ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            Text(counter.description)
+                .padding()
+                .font(.largeTitle)
+                .foregroundColor(.secondary)
+            HStack {
+                Button(action: decrement) {
+                    Image(systemName: "arrow.left")
+                }
+                .padding()
+                Button(action: increment) {
+                    Image(systemName: "arrow.right")
+                }
+                .padding()
+            }
+        }
     }
 }
 
