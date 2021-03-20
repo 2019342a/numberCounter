@@ -22,7 +22,7 @@ struct ContentView {
 extension ContentView: View {
     var body: some View {
         VStack {
-            Text(counter.description)
+            Text(counter.spellOut)
                 .padding()
                 .font(.largeTitle)
                 .foregroundColor(.secondary)
