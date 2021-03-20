@@ -23,4 +23,4 @@ jobs:
     - name: Xcode build
       run: |
         cd Counter/
-        xcodebuild clean build -scheme Counter -destination 'platform=iOS Simulator,name=iPhone 11,OS=14.4'
+        xcodebuild clean build -scheme Counter -destination 'platform=iOS Simulator,name=iPhone 11,OS=14.0'
