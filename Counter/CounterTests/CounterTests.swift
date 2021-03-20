@@ -10,24 +10,47 @@ import XCTest
 
 class CounterTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testModelIncrement() throws {
+        // 1. given
+        let model = Model(value: 5)
+        
+        // 2. when
+        let incrementedModel = model.increment
+        
+        // 3. then
+        XCTAssertEqual(incrementedModel.value, 6)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testModelDecrement() throws {
+        // 1. given
+        let model = Model(value: 8)
+        
+        // 2. when
+        let incrementedModel = model.decrement
+        
+        // 3. then
+        XCTAssertEqual(incrementedModel.value, 7)
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testControllerIncrement() throws {
+        // 1. given
+        let controller = ContentViewController()
+        
+        // 2. when
+        controller.increment()
+        
+        // 3. then
+        XCTAssertEqual(controller.currentValue, 1)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testControllerDecrement() throws {
+        // 1. given
+        let controller = ContentViewController()
+        
+        // 2. when
+        controller.decrement()
+        
+        // 3. then
+        XCTAssertEqual(controller.currentValue, -1)
     }
-
 }
