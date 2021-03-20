@@ -8,30 +8,22 @@
 import SwiftUI
 
 struct ContentView {
-    @State private var counter = 0
-    
-    func increment() {
-        counter += 1
-    }
-    
-    func decrement() {
-        counter -= 1
-    }
+    @StateObject var controller = ContentViewController()
 }
 
 extension ContentView: View {
     var body: some View {
         VStack {
-            Text(counter.spellOut)
+            Text(controller.currentValue.spellOut)
                 .padding()
                 .font(.largeTitle)
                 .foregroundColor(.secondary)
             HStack {
-                Button(action: decrement) {
+                Button(action: controller.decrement) {
                     Image(systemName: "arrow.left")
                 }
                 .padding()
-                Button(action: increment) {
+                Button(action: controller.increment) {
                     Image(systemName: "arrow.right")
                 }
                 .padding()
